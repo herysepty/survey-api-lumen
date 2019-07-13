@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AnswersTable extends Migration
+class CreateFamilyCardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class AnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers', function (Blueprint $table) {
+        Schema::create('family_cards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('question_option_id');
-            $table->string('answer_numeric');
-            $table->string('answer_text');
+            $table->string('full_name');
+            $table->string('status_of_intra_group_relation');
+            $table->string('sex');
+            $table->string('age');
+            $table->string('occupation');
             $table->timestamps();
         });
     }
@@ -29,7 +31,6 @@ class AnswersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('answers');
+        Schema::dropIfExists('family_cards');
     }
 }
-

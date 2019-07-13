@@ -16,12 +16,15 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () use ($router) {
+// $router->group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () use ($router) {
+$router->group(['prefix' => 'api/v1'], function () use ($router) {
     $router->post('questions', 'QuestionController@store');
+    $router->get('questions', 'QuestionController@getAll');
     $router->post('survey', 'SurveyController@store');
     $router->post('respondents', 'RespondentController@store');
     $router->get('respondents', 'RespondentController@getAll');
     $router->get('respondents/{id}', 'RespondentController@getById');
+    $router->get('family_cards/{id}', 'RespondentController@store');
 });
 
 $router->post('/login', 'LoginController@index');

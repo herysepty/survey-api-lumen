@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class Question extends Model implements AuthenticatableContract, AuthorizableContract
+class OptionChoice extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
 
@@ -18,9 +18,8 @@ class Question extends Model implements AuthenticatableContract, AuthorizableCon
      * @var array
      */
     protected $fillable = [
-        'question_name',
-        'question_subtext',
-        'input_type_name'
+        'option_group_id',
+        'option_choice_name'
     ];
 
     /**
