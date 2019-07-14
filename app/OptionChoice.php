@@ -28,4 +28,9 @@ class OptionChoice extends Model implements AuthenticatableContract, Authorizabl
      * @var array
      */
     protected $hidden = [];
+
+    public function question()
+    {
+        return $this->belongsToMany('App\Question', 'question_options', 'question_id', 'option_choice_id');
+    }
 }

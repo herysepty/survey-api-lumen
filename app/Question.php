@@ -29,4 +29,9 @@ class Question extends Model implements AuthenticatableContract, AuthorizableCon
      * @var array
      */
     protected $hidden = [];
+
+    public function optionChoice()
+    {
+        return $this->belongsToMany('App\OptionChoice', 'question_options', 'question_id', 'option_choice_id');
+    }
 }

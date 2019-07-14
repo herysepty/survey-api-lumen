@@ -14,7 +14,7 @@ class QuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('question_name');
             $table->string('question_subtext');
             $table->string('input_type_name');

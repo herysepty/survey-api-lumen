@@ -24,7 +24,6 @@ class QuestionController extends Controller
 
     public function getAll()
     {
-        $resultDataMap = [];
         // $employee = Employee::select(['idk as employee_id', 'nama as name', 'id_karyawan as employee_c'])->limit(100)->get();
         // if ($employee) {
         //     $this->employee = $employee;
@@ -34,21 +33,10 @@ class QuestionController extends Controller
         // return response($this->employee)->header('Content-Type', 'application/json');
 
         $Question = new Question();
+        $questions = $Question::with('optionChoice')->get();
 
-        $questions = $Question::all();
-        // var_dump($questions);
-
-        foreach ($questions as $question) {
-            $resultDataMapTmp = [];
-            $OptionChoice = new OptionChoice();
-            $OptionChoice = $OptionChoice::where('question_id', $question->id)->first();
-            $resultDataMapTmp['option_choices'] = $OptionChoice;
-        }
-
-
-        return response()->json([
-            'data' => $resultDataMapTmp
-        ], 201);
+        if ($questions) return response()->json($questions, 201);
+        else return response()->json([], 204);
     }
 
     public function store(Question $question)
@@ -59,6 +47,9 @@ class QuestionController extends Controller
             'input_type_name' => 'required',
             'option_choices' => 'required'
         ]);
+
+        // $movie = Question::create($request->all());
+        // $movie->categories()->attach($request->categories);
         
         $question = new Question();
         $question->question_name = $this->request->input('question_name');
@@ -97,9 +88,8 @@ class QuestionController extends Controller
         //     ->header('Authorization','Bearer '.$this->jwt($user))
         //     ->header('Domain','Gadjian');
 
-        return response()->json([
-            'data' => $question
-        ], 201);
+        $question = Question::with('optionChoice')->where('id', $question->id)->first();
+
+        return response()->json($question, 201);
     }
-    
 }
