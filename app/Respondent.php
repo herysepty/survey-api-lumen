@@ -20,7 +20,8 @@ class Respondent extends Model implements AuthenticatableContract, AuthorizableC
     protected $fillable = [
         'full_name',
         'address',
-        'gender'
+        'gender',
+        'respondent_id'
     ];
 
     /**

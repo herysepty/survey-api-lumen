@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RespondentTable extends Migration
+class CreateOptionChoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class RespondentTable extends Migration
      */
     public function up()
     {
-        Schema::create('respondents', function (Blueprint $table) {
+        Schema::create('option_choices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('full_name');
-            $table->string('address');
-            $table->string('gender');
+            $table->bigInteger('option_group_id');
+            $table->string('option_choice_name');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class RespondentTable extends Migration
      */
     public function down()
     {
-        Schema::drop('respondents');
+        Schema::dropIfExists('option_choices');
     }
 }

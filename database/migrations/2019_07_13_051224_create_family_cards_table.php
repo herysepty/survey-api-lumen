@@ -20,6 +20,7 @@ class CreateFamilyCardsTable extends Migration
             $table->string('sex');
             $table->string('age');
             $table->string('occupation');
+            $table->bigInteger('respondent_id');
             $table->timestamps();
         });
     }

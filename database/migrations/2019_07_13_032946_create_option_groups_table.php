@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOptionChoices extends Migration
+class CreateOptionGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateOptionChoices extends Migration
      */
     public function up()
     {
-        Schema::create('option_choices', function (Blueprint $table) {
+        Schema::create('option_groups', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('option_group_id');
-            $table->string('option_choice_name');
+            $table->string('option_group_name');
+            $table->string('option_group_code');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateOptionChoices extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('option_choices');
+        Schema::dropIfExists('option_groups');
     }
 }

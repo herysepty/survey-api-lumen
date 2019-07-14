@@ -24,7 +24,7 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
     $router->post('respondents', 'RespondentController@store');
     $router->get('respondents', 'RespondentController@getAll');
     $router->get('respondents/{id}', 'RespondentController@getById');
-    $router->get('family_cards/{id}', 'RespondentController@store');
+    $router->post('family_cards', 'FamilyCardController@store');
 });
 
 $router->post('/login', 'LoginController@index');
