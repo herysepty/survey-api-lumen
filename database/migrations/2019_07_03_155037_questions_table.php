@@ -17,7 +17,8 @@ class QuestionsTable extends Migration
             $table->increments('id');
             $table->string('question_name');
             $table->string('question_subtext');
-            $table->string('input_type_name');
+            $table->string('question_required'); // y/n
+            $table->string('input_type_name'); //text | checkbox | select | multi-select | radio-dials
             $table->timestamps();
         });
     }

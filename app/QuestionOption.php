@@ -28,4 +28,15 @@ class QuestionOption extends Model implements AuthenticatableContract, Authoriza
      * @var array
      */
     protected $hidden = [];
+
+    public function question()
+    {
+        return $this->belongsTo('App\Question');
+    }
+
+    public function optionChoice()
+    {
+        return $this->belongsTo('App\optionChoice');
+    }
+
 }

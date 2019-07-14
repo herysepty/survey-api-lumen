@@ -18,8 +18,11 @@ class Answer extends Model implements AuthenticatableContract, AuthorizableContr
      * @var array
      */
     protected $fillable = [
-        'description',
-        'question_id'
+        'question_option_id',
+        'respondent_id',
+        'answer_numeric',
+        'answer_text',
+        'respondent_id'
     ];
 
     /**
@@ -28,4 +31,14 @@ class Answer extends Model implements AuthenticatableContract, AuthorizableContr
      * @var array
      */
     protected $hidden = [];
+
+    public function respondent()
+    {
+        return $this->belongsTo('App\Respondent');
+    }
+
+    public function questionOption()
+    {
+        return $this->belongsTo('App\QuestionOption');
+    }
 }

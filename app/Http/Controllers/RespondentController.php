@@ -50,11 +50,11 @@ class RespondentController extends Controller
             'gender' => 'required'
         ]);
         
-        $respondent = new Respondent();
-        $respondent->full_name = $this->request->input('full_name');
-        $respondent->address = $this->request->input('address');
-        $respondent->gender = $this->request->input('gender');
-        $respondent->save();
+        $respondent = Respondent::create($this->request->all());
+        // $respondent->full_name = $this->request->input('full_name');
+        // $respondent->address = $this->request->input('address');
+        // $respondent->gender = $this->request->input('gender');
+        // $respondent->save();
 
         return response()->json($respondent, 400);
     }

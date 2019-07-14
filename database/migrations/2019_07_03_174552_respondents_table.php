@@ -18,6 +18,12 @@ class RespondentsTable extends Migration
             $table->string('full_name');
             $table->string('address');
             $table->string('gender');
+            $table->string('hamlet'); // rw
+            $table->string('neighbourhood'); //rt
+            $table->string('urban_village'); //urban village
+            $table->string('sub_district'); //sub-district
+            $table->string('district'); //Kabupaten
+            $table->string('province'); // provinsi
             $table->timestamps();
         });
     }

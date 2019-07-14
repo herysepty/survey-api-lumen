@@ -21,7 +21,12 @@ class Respondent extends Model implements AuthenticatableContract, AuthorizableC
         'full_name',
         'address',
         'gender',
-        'respondent_id'
+        'hamlet',
+        'neighbourhood',
+        'urban_village',
+        'sub_district',
+        'district',
+        'province'
     ];
 
     /**

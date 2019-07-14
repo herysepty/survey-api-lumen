@@ -54,6 +54,7 @@ class QuestionController extends Controller
         $question = new Question();
         $question->question_name = $this->request->input('question_name');
         $question->question_subtext = $this->request->input('question_subtext');
+        $question->question_required = $this->request->input('question_required');
         $question->input_type_name = $this->request->input('input_type_name');
         $question->save();
 
